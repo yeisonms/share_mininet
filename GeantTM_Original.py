@@ -299,7 +299,7 @@ def trafficGen_iperf (hosts_,tm):
     Launch servers with specific port per host and generate UDP traffic with iperf3 according to the 
     Geant 2004 traffic matrixes 
     '''
-    path_scripts = '/home/ubuntu/mininet/scriptsTraffic_sorted/'+str(len(hosts_))+'nodos/'
+    path_scripts = '/home/mininet/mininet/scriptsTraffic_sorted/'+str(len(hosts_))+'nodos/'
     foldersNames = sorted(getFoldersNames(path_scripts))
     num_folders = len(foldersNames)
     tms = tm.split(',')
@@ -310,7 +310,7 @@ def trafficGen_iperf (hosts_,tm):
         print( "*** 1. Launching servers ***" )
         call_bot("*** 1. Launching servers ***")
         start = time.time()
-        # py h2.cmd('sudo bash /home/ubuntu/mininet/scriptsTraffic_sorted/Servers/server_1.sh') #executing line from cli  
+        # py h2.cmd('sudo bash /home/mininet/mininet/scriptsTraffic_sorted/Servers/server_1.sh') #executing line from cli  
         cont = 0
         for server in hosts_:
             cont += 1
@@ -326,7 +326,7 @@ def trafficGen_iperf (hosts_,tm):
         time.sleep(6)
         print( "*** 2. Launching clients ***")
         call_bot("*** 2. Launching clients ***")
-        # py h2.cmd( 'sudo bash /home/ubuntu/mininet/scriptsTraffic_sorted/IntraTM-2005-01-01-00-30/client_02.sh &') #executing line from cli        
+        # py h2.cmd( 'sudo bash /home/mininet/mininet/scriptsTraffic_sorted/IntraTM-2005-01-01-00-30/client_02.sh &') #executing line from cli        
         cont = 0
         for client in hosts_:
             cont += 1
@@ -373,34 +373,34 @@ def trafficGen_iperf (hosts_,tm):
 #         print( "*** 1. Launching servers ***" )
 #         call_bot("*** 1. Launching servers ***")
 #         start = time.time()
-#         # py h2.cmd('sudo bash /home/ubuntu/mininet/scriptsTraffic_sorted/Servers/server_1.sh') #executing line from cli  
+#         # py h2.cmd('sudo bash /home/mininet/mininet/scriptsTraffic_sorted/Servers/server_1.sh') #executing line from cli  
 #         cont = 0
 #         for server in hosts_:
 #             cont += 1
 #             if cont != 10: # I figured out late that in TMs nobody talks to 10, 10 only listens -.-
 #                 if cont > 9: 
-#                     # py h2.cmd( 'sudo bash /home/ubuntu/mininet/scriptsTraffic_sorted/IntraTM-2005-01-01-00-30/Servers/server_03/server_03.sh &')
-#                     print('Executing: \n {2}.cmd( "sudo bash /home/ubuntu/mininet/scriptsTraffic_sorted/{0}/Servers/server_{1}.sh")'.format(foldersNames[tm],cont,server))
-#                     server.cmd('sudo bash /home/ubuntu/mininet/scriptsTraffic_sorted/{0}/Servers/server_{1}.sh &'.format(foldersNames[tm],cont))
+#                     # py h2.cmd( 'sudo bash /home/mininet/mininet/scriptsTraffic_sorted/IntraTM-2005-01-01-00-30/Servers/server_03/server_03.sh &')
+#                     print('Executing: \n {2}.cmd( "sudo bash /home/mininet/mininet/scriptsTraffic_sorted/{0}/Servers/server_{1}.sh")'.format(foldersNames[tm],cont,server))
+#                     server.cmd('sudo bash /home/mininet/mininet/scriptsTraffic_sorted/{0}/Servers/server_{1}.sh &'.format(foldersNames[tm],cont))
 #                 else:
-#                     print('Executing: \n {2}.cmd( "sudo bash /home/ubuntu/mininet/scriptsTraffic_sorted/{0}/Servers/server_0{1}.sh")'.format(foldersNames[tm],cont,server))
-#                     server.cmd('sudo bash /home/ubuntu/mininet/scriptsTraffic_sorted/{0}/Servers/server_0{1}.sh &'.format(foldersNames[tm],cont))
+#                     print('Executing: \n {2}.cmd( "sudo bash /home/mininet/mininet/scriptsTraffic_sorted/{0}/Servers/server_0{1}.sh")'.format(foldersNames[tm],cont,server))
+#                     server.cmd('sudo bash /home/mininet/mininet/scriptsTraffic_sorted/{0}/Servers/server_0{1}.sh &'.format(foldersNames[tm],cont))
 #             time.sleep(3)
 
 #         time.sleep(6)
 #         print( "*** 2. Launching clients ***")
 #         call_bot("*** 2. Launching clients ***")
-#         # py h2.cmd( 'sudo bash /home/ubuntu/mininet/scriptsTraffic_sorted/IntraTM-2005-01-01-00-30/client_02.sh &') #executing line from cli
+#         # py h2.cmd( 'sudo bash /home/mininet/mininet/scriptsTraffic_sorted/IntraTM-2005-01-01-00-30/client_02.sh &') #executing line from cli
 #         cont = 0
 #         for client in hosts_:
 #             cont += 1
 #             if cont > 9:
-#                 print('Executing: \n {2}.cmd("sudo bash /home/ubuntu/mininet/scriptsTraffic_sorted/{0}/Clients/client_{1}.sh")'.format(foldersNames[tm],cont,client))
-#                 client.cmd('sudo bash /home/ubuntu/mininet/scriptsTraffic_sorted/{0}/Clients/client_{1}.sh &'.format(foldersNames[tm],cont))
+#                 print('Executing: \n {2}.cmd("sudo bash /home/mininet/mininet/scriptsTraffic_sorted/{0}/Clients/client_{1}.sh")'.format(foldersNames[tm],cont,client))
+#                 client.cmd('sudo bash /home/mininet/mininet/scriptsTraffic_sorted/{0}/Clients/client_{1}.sh &'.format(foldersNames[tm],cont))
 
 #             else:
-#                 print('Executing: \n {2}.cmd("sudo bash /home/ubuntu/mininet/scriptsTraffic_sorted/{0}/Clients/client_0{1}.sh")'.format(foldersNames[tm],cont,client))
-#                 client.cmd('sudo bash /home/ubuntu/mininet/scriptsTraffic_sorted/{0}/Clients/client_0{1}.sh &'.format(foldersNames[tm],cont))
+#                 print('Executing: \n {2}.cmd("sudo bash /home/mininet/mininet/scriptsTraffic_sorted/{0}/Clients/client_0{1}.sh")'.format(foldersNames[tm],cont,client))
+#                 client.cmd('sudo bash /home/mininet/mininet/scriptsTraffic_sorted/{0}/Clients/client_0{1}.sh &'.format(foldersNames[tm],cont))
 #             time.sleep(6)
 #         print("Wait while ends")
 #         call_bot("Wait while {0} ends".format(foldersNames[tm]))
@@ -424,38 +424,38 @@ def trafficGen_ditg (hosts_):
         print( "*** 1. Launching servers ***" )
         call_bot("*** 1. Launching servers ***")
         start = time.time()
-        # py h12.cmdPrint('cd /usr/bin/ && ./ITGRecv -l /home/ubuntu/mininet/ditg/serverOutputs/IntraTM-2005-01-02-00-00/server_12.log &') #executing line from cli  
+        # py h12.cmdPrint('cd /usr/bin/ && ./ITGRecv -l /home/mininet/mininet/ditg/serverOutputs/IntraTM-2005-01-02-00-00/server_12.log &') #executing line from cli  
         cont = 0
         for server in hosts_:
             cont += 1
             if cont != 10: # I figured out late that in TMs nobody talks to 10, 10 only listens -.-
                 if cont > 9: 
-                    print('Executing: \n {0}.cmd( "cd /usr/bin/ && ./ITGRecv -l /home/ubuntu/mininet/ditg/serverOutputs/{1}/server_{2}.log &")'.format(server,foldersNames[tm],cont))
-                    server.cmd('cd /usr/bin/ && ./ITGRecv -l /home/ubuntu/mininet/ditg/serverOutputs/{0}/server_{1}.log &'.format(foldersNames[tm],cont))
+                    print('Executing: \n {0}.cmd( "cd /usr/bin/ && ./ITGRecv -l /home/mininet/mininet/ditg/serverOutputs/{1}/server_{2}.log &")'.format(server,foldersNames[tm],cont))
+                    server.cmd('cd /usr/bin/ && ./ITGRecv -l /home/mininet/mininet/ditg/serverOutputs/{0}/server_{1}.log &'.format(foldersNames[tm],cont))
                 else:
-                    print('Executing: \n {0}.cmd( "cd /usr/bin/ && ./ITGRecv -l /home/ubuntu/mininet/ditg/serverOutputs/{1}/server_0{2}.log &")'.format(server,foldersNames[tm],cont))
-                    server.cmd('cd /usr/bin/ && ./ITGRecv -l /home/ubuntu/mininet/ditg/serverOutputs/{0}/server_0{1}.log &'.format(foldersNames[tm],cont))
+                    print('Executing: \n {0}.cmd( "cd /usr/bin/ && ./ITGRecv -l /home/mininet/mininet/ditg/serverOutputs/{1}/server_0{2}.log &")'.format(server,foldersNames[tm],cont))
+                    server.cmd('cd /usr/bin/ && ./ITGRecv -l /home/mininet/mininet/ditg/serverOutputs/{0}/server_0{1}.log &'.format(foldersNames[tm],cont))
             time.sleep(2)
 
         time.sleep(6)
         print( "*** 2. Launching clients ***")
         call_bot("*** 2. Launching clients ***")
-        # py h1.cmdPrint( 'cd /usr/bin/ && ./ITGSend /home/ubuntu/mininet/scriptsTraffic_ditg/IntraTM-2005-01-02-00-00/client_01 -l /home/ubuntu/mininet/ditg/clientOutputs/IntraTM-2005-01-02-00-00/clientPRUEBA2 &') #executing line from cli
+        # py h1.cmdPrint( 'cd /usr/bin/ && ./ITGSend /home/mininet/mininet/scriptsTraffic_ditg/IntraTM-2005-01-02-00-00/client_01 -l /home/mininet/mininet/ditg/clientOutputs/IntraTM-2005-01-02-00-00/clientPRUEBA2 &') #executing line from cli
         # cont = 9 
         # for client in hosts_:
         for client in hosts_[9:16]:
             # cont += 1
             # if cont > 9:
-            # py h2.cmdPrint('cd /usr/bin/ && ITGSend /home/ubuntu/mininet/scriptsTraffic_ditg/IntraTM-2005-01-02-00-00/client_02 -l /home/ubuntu/mininet/ditg/clientOutputs/IntraTM-2005-01-02-00-00/client_02.log
-            print('Executing: \n {2}.cmd("cd /usr/bin/ && ./ITGSend /home/ubuntu/mininet/scriptsTraffic_ditg/{0}/client_{1} -l /home/ubuntu/mininet/ditg/clientOutputs/{0}/client_{1}.log &")'.format(foldersNames[tm],str(client)[1:],client))
-            client.cmd('cd /usr/bin/ && ./ITGSend /home/ubuntu/mininet/scriptsTraffic_ditg/{0}/client_{1} -l /home/ubuntu/mininet/ditg/clientOutputs/{0}/client_{1}.log &'.format(foldersNames[tm],str(client)[1:]))
+            # py h2.cmdPrint('cd /usr/bin/ && ITGSend /home/mininet/mininet/scriptsTraffic_ditg/IntraTM-2005-01-02-00-00/client_02 -l /home/mininet/mininet/ditg/clientOutputs/IntraTM-2005-01-02-00-00/client_02.log
+            print('Executing: \n {2}.cmd("cd /usr/bin/ && ./ITGSend /home/mininet/mininet/scriptsTraffic_ditg/{0}/client_{1} -l /home/mininet/mininet/ditg/clientOutputs/{0}/client_{1}.log &")'.format(foldersNames[tm],str(client)[1:],client))
+            client.cmd('cd /usr/bin/ && ./ITGSend /home/mininet/mininet/scriptsTraffic_ditg/{0}/client_{1} -l /home/mininet/mininet/ditg/clientOutputs/{0}/client_{1}.log &'.format(foldersNames[tm],str(client)[1:]))
             time.sleep(10)
             # else:
 
         # time.sleep(6)
         # for client in hosts_[:9]:
-        #     print('Executing: \n {2}.cmd("cd /usr/bin/ && ./ITGSend /home/ubuntu/mininet/scriptsTraffic_ditg/{0}/client_0{1} -l /home/ubuntu/mininet/ditg/clientOutputs/{0}/client_0{1}.log &")'.format(foldersNames[tm],str(client)[1:],client))
-        #     client.cmd('cd /usr/bin/ && ./ITGSend /home/ubuntu/mininet/scriptsTraffic_ditg/{0}/client_0{1} -l /home/ubuntu/mininet/ditg/clientOutputs/{0}/client_0{1}.log &'.format(foldersNames[tm],str(client)[1:]))
+        #     print('Executing: \n {2}.cmd("cd /usr/bin/ && ./ITGSend /home/mininet/mininet/scriptsTraffic_ditg/{0}/client_0{1} -l /home/mininet/mininet/ditg/clientOutputs/{0}/client_0{1}.log &")'.format(foldersNames[tm],str(client)[1:],client))
+        #     client.cmd('cd /usr/bin/ && ./ITGSend /home/mininet/mininet/scriptsTraffic_ditg/{0}/client_0{1} -l /home/mininet/mininet/ditg/clientOutputs/{0}/client_0{1}.log &'.format(foldersNames[tm],str(client)[1:]))
         #     time.sleep(10)
         
         print("Wait while ends")
