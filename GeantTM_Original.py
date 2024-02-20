@@ -222,10 +222,9 @@ def launch(controllerIp, controllerPort, trafficFlag_iperf, trafficFlag_ditg, pi
    # set_OFP_protocol(net.switches)
     time.sleep(20)
     if ac == "yes":
-        ping_access_table(net.hosts)
-
+	    ping_access_table(net.hosts)
     if ping == "yes": #Do pingall test
-        net.pingAll()
+         net.pingAll()
 
     if trafficFlag_iperf == "yes": 
         #Generate traffic
@@ -504,8 +503,8 @@ if __name__ == '__main__':
             trafficFlag_ditg = option[1]
         elif (option[0] == "--ping"):
             ping = option[1]
-        elif (option[0] == "--ac"):
-            ac = option[1]
+    	elif (option[0] == "--ac"):
+         ac = option[1]
         elif (option[0] == "--tm"):
             tm = option[1]
         else:
