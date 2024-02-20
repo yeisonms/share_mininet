@@ -222,9 +222,10 @@ def launch(controllerIp, controllerPort, trafficFlag_iperf, trafficFlag_ditg, pi
    # set_OFP_protocol(net.switches)
     time.sleep(20)
     if ac == "yes":
-	    ping_access_table(net.hosts)
+        ping_access_table(net.hosts)
+
     if ping == "yes": #Do pingall test
-         net.pingAll()
+        net.pingAll()
 
     if trafficFlag_iperf == "yes": 
         #Generate traffic
@@ -261,14 +262,14 @@ def set_OFP_protocol(sws):
         cmd = "sudo ovs-vsctl set bridge %s protocols=OpenFlow13" % sw
         os.system(cmd)
 
-def numToMac (num):
+def numToMac(num):
     """
     Convert a numeric value into the MAC string form.
     """
-    num = long(num)
+    num = int(num)
     num = struct.pack('!Q', num)
     assert len(num) == 8
-    r = ':'.join(['%02x' % (ord(x),) for x in num[2:]])
+    r = ':'.join(['%02x' % (x,) for x in num[2:]])
     return r
 
 def ipToLong (ip):
@@ -466,11 +467,11 @@ def trafficGen_ditg (hosts_):
         call_bot("{0} ended in: {1}s".format(foldersNames[tm],duration))
         time.sleep(2)
 
-def numToIp (num):
+def numToIp(num):
     """
     Convert a numeric value into the IP string form.
     """
-    num = long(num)
+    num = int(num)
     return socket.inet_ntoa(struct.pack('!L', num))  
     
 if __name__ == '__main__':
@@ -503,8 +504,8 @@ if __name__ == '__main__':
             trafficFlag_ditg = option[1]
         elif (option[0] == "--ping"):
             ping = option[1]
-    	elif (option[0] == "--ac"):
-         ac = option[1]
+        elif (option[0] == "--ac"):
+            ac = option[1]
         elif (option[0] == "--tm"):
             tm = option[1]
         else:
