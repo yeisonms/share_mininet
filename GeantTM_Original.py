@@ -222,8 +222,8 @@ def launch(controllerIp, controllerPort, trafficFlag_iperf, trafficFlag_ditg, pi
    # set_OFP_protocol(net.switches)
     time.sleep(20)
     if ac == "yes":
-	   ping_access_table(net.hosts)
-    
+        ping_access_table(net.hosts)
+
     if ping == "yes": #Do pingall test
         net.pingAll()
 
